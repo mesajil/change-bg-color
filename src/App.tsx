@@ -1,8 +1,11 @@
+import { useState } from 'react'
 import './App.css'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 
 function App() {
+  const [color, setColor] = useState('')
+
   // Update background color
   const changeBgColor = async () => {
     console.log('sayHello Clicked')
@@ -11,19 +14,15 @@ function App() {
       console.log({ 'tab.id': tab.id })
       chrome.scripting.executeScript({
         target: { tabId: tab.id },
-        func: () => {
-          document.body.style.backgroundColor = 'red'
+        args: [color],
+        func: color => {
+          document.body.style.backgroundColor = color
         },
       })
     }
   }
 
-  // Example Function
-  const sayHello = () => {
-    console.log('Hello World!')
-  }
-
-  // JSX
+  // Popup
   return (
     <>
       <div>
@@ -34,14 +33,25 @@ function App() {
           <img src={reactLogo} className='logo react' alt='React logo' />
         </a>
       </div>
-      <h1>My Chrome Extension</h1>
+      <h1>Update Bg Color</h1>
       <div className='card'>
-        <button onClick={changeBgColor}>Click Me!</button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+        <div>
+          <input type='color' className='color-circle' onChange={e => setColor(e.currentTarget.value)}></input>
+        </div>
+        <h2>Color selected: {color}</h2>
+        <button
+          onClick={changeBgColor}
+          style={{
+            backgroundColor: color,
+            color: '#fff',
+            border: 'none',
+            padding: '10px 20px',
+            borderRadius: '5px',
+            cursor: 'pointer',
+          }}>
+          Apply
+        </button>
       </div>
-      <p className='read-the-docs'>Click on the Vite and React logos to learn more</p>
     </>
   )
 }
