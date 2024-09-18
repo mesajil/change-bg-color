@@ -4,22 +4,28 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 
 function App() {
-  const [color, setColor] = useState('')
+  const [color, setColor] = useState<string>('')
 
-  // Update background color
-  const changeBgColor = async () => {
-    console.log('sayHello Clicked')
-    let [tab] = await chrome.tabs.query({ active: true })
+  // Function to update background color
+  const changeBgColor = async (newColor: string) => {
+    let [tab] = await chrome.tabs.query({ active: true, currentWindow: true })
     if (tab.id) {
       console.log({ 'tab.id': tab.id })
       chrome.scripting.executeScript({
         target: { tabId: tab.id },
-        args: [color],
-        func: color => {
+        args: [newColor],
+        func: (color: string) => {
           document.body.style.backgroundColor = color
         },
       })
     }
+  }
+
+  // Handler for color change event
+  const handleColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newColor: string = e.currentTarget.value
+    setColor(newColor)
+    changeBgColor(newColor)
   }
 
   // Popup
@@ -33,24 +39,12 @@ function App() {
           <img src={reactLogo} className='logo react' alt='React logo' />
         </a>
       </div>
-      <h1>Update Bg Color</h1>
+      <h1>Update Background Color</h1>
       <div className='card'>
         <div>
-          <input type='color' className='color-circle' onChange={e => setColor(e.currentTarget.value)}></input>
+          <input type='color' className='color-circle' onChange={handleColorChange} />
         </div>
-        <h2>Color selected: {color}</h2>
-        <button
-          onClick={changeBgColor}
-          style={{
-            backgroundColor: color,
-            color: '#fff',
-            border: 'none',
-            padding: '10px 20px',
-            borderRadius: '5px',
-            cursor: 'pointer',
-          }}>
-          Apply
-        </button>
+        <h2>Selected color: {color}</h2>
       </div>
     </>
   )
