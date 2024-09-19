@@ -2,6 +2,8 @@ import { useState } from 'react'
 import './App.css'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import { Github, Linkedin } from 'lucide-react'
+import ProfileButton from './popup/ProfileButton'
 
 function App() {
   const [color, setColor] = useState<string>('')
@@ -32,10 +34,10 @@ function App() {
   return (
     <>
       <div>
-        <a href='https://vitejs.dev' target='_blank'>
+        <a href='https://vitejs.dev' target='_blank' rel='noopener noreferrer'>
           <img src={viteLogo} className='logo' alt='Vite logo' />
         </a>
-        <a href='https://react.dev' target='_blank'>
+        <a href='https://react.dev' target='_blank' rel='noopener noreferrer'>
           <img src={reactLogo} className='logo react' alt='React logo' />
         </a>
       </div>
@@ -45,6 +47,10 @@ function App() {
           <input type='color' className='color-circle' onChange={handleColorChange} />
         </div>
         <h2>Selected color: {color}</h2>
+        <div className='social-icons'>
+          <ProfileButton Icon={Github} url='https://github.com/mesajil' size={32} />
+          <ProfileButton Icon={Linkedin} url='https://linkedin.com/in/lhmesajil' size={32} />
+        </div>
       </div>
     </>
   )
