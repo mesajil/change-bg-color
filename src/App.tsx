@@ -2,11 +2,12 @@ import { useState } from 'react'
 import './App.css'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import { Github, Linkedin } from 'lucide-react'
-import ProfileButton from './popup/ProfileButton'
+// import { Github, Linkedin } from 'lucide-react'
+// import ProfileButton from './popup/ProfileButton'
+import Footer from './popup/Footer/Footer'
 
 function App() {
-  const [color, setColor] = useState<string>('')
+  const [color, setColor] = useState<string>('#000')
 
   // Function to update background color
   const changeBgColor = async (newColor: string) => {
@@ -43,14 +44,15 @@ function App() {
       </div>
       <h1>Update Background Color</h1>
       <div className='card'>
+        <h2>Selected color: {color}</h2>
         <div>
           <input type='color' className='color-circle' onChange={handleColorChange} />
         </div>
-        <h2>Selected color: {color}</h2>
-        <div className='social-icons'>
-          <ProfileButton Icon={Github} url='https://github.com/mesajil' size={32} />
-          <ProfileButton Icon={Linkedin} url='https://linkedin.com/in/lhmesajil' size={32} />
-        </div>
+        {/* <div className='social-icons'>
+          <ProfileButton Icon={Github} url='https://github.com/mesajil' size={60} backgroundColor={color} />
+          <ProfileButton Icon={Linkedin} url='https://linkedin.com/in/lhmesajil' size={60} backgroundColor={color} />
+        </div> */}
+        <Footer></Footer>
       </div>
     </>
   )

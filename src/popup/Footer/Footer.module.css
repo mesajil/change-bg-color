@@ -1,0 +1,68 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #1f2937; /* Equivalent to bg-gray-800 */
+  color: #ffffff; /* Equivalent to text-white */
+  padding-top: 1rem; /* Equivalent to py-4 */
+  padding-bottom: 1rem;
+}
+
+.container {
+  max-width: 1280px; /* Adjust as needed */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem; /* Equivalent to px-4 */
+  padding-right: 1rem;
+}
+
+.socialLinks {
+  display: flex; /* Equivalent to flex */
+  justify-content: center; /* Equivalent to justify-center */
+  gap: 1rem; /* Equivalent to space-x-4 */
+}
+
+.socialLink {
+  display: inline-flex; /* Equivalent to inline-flex */
+  align-items: center; /* Equivalent to items-center */
+  justify-content: center; /* Equivalent to justify-center */
+  width: 2.5rem; /* Equivalent to w-10 */
+  height: 2.5rem; /* Equivalent to h-10 */
+  border-radius: 9999px; /* Equivalent to rounded-full */
+  color: inherit;
+  text-decoration: none;
+  transition-property: background-color;
+  transition-duration: 300ms; /* Equivalent to duration-300 */
+}
+
+.socialLink:hover {
+  /* Placeholder for hover effects */
+}
+
+.socialLink.linkedin {
+  background-color: #2563eb; /* Equivalent to bg-blue-600 */
+}
+
+.socialLink.linkedin:hover {
+  background-color: #1d4ed8; /* Equivalent to hover:bg-blue-700 */
+}
+
+.socialLink.github {
+  background-color: #374151; /* Equivalent to bg-gray-700 */
+}
+
+.socialLink.github:hover {
+  background-color: #4b5563; /* Equivalent to hover:bg-gray-600 */
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
