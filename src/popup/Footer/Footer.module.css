@@ -56,6 +56,14 @@
   background-color: #4b5563; /* Equivalent to hover:bg-gray-600 */
 }
 
+.socialLink.website {
+  background-color: #16a34a; /* Equivalent to bg-green-600 */
+}
+
+.socialLink.website:hover {
+  background-color: #15803d; /* Equivalent to hover:bg-green-700 */
+}
+
 .srOnly {
   position: absolute;
   width: 1px;
