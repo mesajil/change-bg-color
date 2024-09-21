@@ -6,9 +6,10 @@
   "action": {
     "default_popup": "index.html",
     "default_icon": {
-      "32": "images/32/4.png",
-      "48": "images/48/10.png",
-      "128": "images/128/15.png"
+      "16": "images/32/20x20.png",
+      "32": "images/32/35x35.png",
+      "48": "images/48/50x50.png",
+      "128": "images/128/125x125.png"
     }
   },
   "permissions": ["scripting", "activeTab"],
