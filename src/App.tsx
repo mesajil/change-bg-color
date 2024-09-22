@@ -53,12 +53,12 @@ function App() {
   return (
     <>
       <div></div>
-      <h1>Update Background Color</h1>
+      <h1>Change Background Color</h1>
       <div className='card'>
-        <h2>{hexToRgb(color).toUpperCase()}</h2>
         <div>
           <input type='color' className='color-circle' onChange={handleColorChange} value={color} />
         </div>
+        <h2>{hexToRgb(color).toUpperCase()}</h2>
         <Footer />
       </div>
     </>

@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Typescript Chrome Extension",
+  "name": "Change Background Color",
   "version": "1.0.0",
-  "description": "Chrome extension practice",
+  "description": "Change Background Color",
   "action": {
     "default_popup": "index.html",
     "default_icon": {
