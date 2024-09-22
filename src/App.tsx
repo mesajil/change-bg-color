@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './App.css'
 import Footer from './popup/Footer/Footer'
-import { black, hexToRgb, rgbToHex } from './utils/utils'
+import { black, rgbToHex } from './utils/utils'
 
 function App() {
   const [color, setColor] = useState<string>(black)
@@ -53,12 +53,11 @@ function App() {
   return (
     <>
       <div></div>
-      <h1>Change Background Color</h1>
+      <h1>Click to Change the Color</h1>
       <div className='card'>
         <div>
           <input type='color' className='color-circle' onChange={handleColorChange} value={color} />
         </div>
-        <h2>{hexToRgb(color).toUpperCase()}</h2>
         <Footer />
       </div>
     </>
