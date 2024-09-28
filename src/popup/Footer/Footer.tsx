@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
 
           {/* GitHub Link */}
           <a
-            href='https://github.com/mesajil'
+            href='https://github.com/mesajil/change-bg-color'
             target='_blank'
             rel='noopener noreferrer'
             className={`${styles.socialLink} ${styles.github}`}>
