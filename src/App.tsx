@@ -24,11 +24,11 @@ function App() {
   const getCurrentBgColor = async () => {
     let [tab] = await chrome.tabs.query({ active: true, currentWindow: true })
     if (tab?.id) {
-      const [{ result: pageBgColor }] = await chrome.scripting.executeScript({
+      const [{ result: bgColor }] = await chrome.scripting.executeScript({
         target: { tabId: tab.id },
         func: () => window.getComputedStyle(document.body).backgroundColor,
       })
-      setBgColor(rgbToHex(pageBgColor) || defaultColor)
+      setBgColor(rgbToHex(bgColor) || defaultColor)
     }
   }
 

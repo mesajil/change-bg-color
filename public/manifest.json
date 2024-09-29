@@ -13,6 +13,5 @@
       "128": "images/logos/125x125.png"
     }
   },
-  "permissions": ["scripting"],
-  "host_permissions": ["http://*/*", "https://*/*"]
+  "permissions": ["scripting", "activeTab"]
 }
