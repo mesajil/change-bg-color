@@ -14,5 +14,24 @@ Change Background Color is a lightweight Chrome extension that allows you to cus
 
 To develop **Change Background Color**, I utilized the following technologies:
 
-⚡ **Vite.js**: A fast and modern build tool for web projects.  
-🔷 **TypeScript**: A superset of JavaScript that adds static typing, enhancing code robustness and maintainability.
+- ⚡ **Vite.js**: A fast and modern build tool for web projects.
+- 🔷 **TypeScript**: A superset of JavaScript that adds static typing, enhancing code robustness and maintainability.
+
+### 🛠️ How to Use It:
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/mesajil/change-bg-color
+   ```
+2. **Navigate to the project directory:**
+   ```bash
+   cd change-bg-color
+   ```
+3. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+4. **Build the project:**
+   ```bash
+   npm run build
+   ```
