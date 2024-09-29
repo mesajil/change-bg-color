@@ -1,4 +1,4 @@
-const black = '#000000'
+const defaultColor = '#000000'
 
 // Convert RGB color to Hexadecimal
 const rgbToHex = (rgb: string | undefined) => {
@@ -9,7 +9,9 @@ const rgbToHex = (rgb: string | undefined) => {
     const b = parseInt(result[2]).toString(16).padStart(2, '0')
     return `#${r}${g}${b}`
   }
-  return black // Default to black if parsing fails
+
+  // if parsing fails, return default color
+  return defaultColor
 }
 
 // Convert Hex color to RGB
@@ -22,4 +24,4 @@ const hexToRgb = (hex: string): string => {
   return `rgb(${r}, ${g}, ${b})`
 }
 
-export { black, rgbToHex, hexToRgb }
+export { defaultColor, rgbToHex, hexToRgb }

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import './App.css'
 import Footer from './popup/Footer/Footer'
-import { black, rgbToHex } from './utils/utils'
+import { defaultColor, rgbToHex } from './lib/color'
 
 function App() {
-  const [color, setColor] = useState<string>(black)
+  const [bgColor, setBgColor] = useState<string>(defaultColor)
 
   // Function to update background color
   const changeBgColor = async (newColor: string) => {
@@ -24,16 +24,11 @@ function App() {
   const getCurrentBgColor = async () => {
     let [tab] = await chrome.tabs.query({ active: true, currentWindow: true })
     if (tab?.id) {
-      const [{ result: bgColor }] = await chrome.scripting.executeScript({
+      const [{ result: pageBgColor }] = await chrome.scripting.executeScript({
         target: { tabId: tab.id },
-        func: () => {
-          const bgColor = window.getComputedStyle(document.body).backgroundColor
-          return bgColor
-        },
+        func: () => window.getComputedStyle(document.body).backgroundColor,
       })
-
-      // Convert RGB color to Hex
-      setColor(rgbToHex(bgColor) || black)
+      setBgColor(rgbToHex(pageBgColor) || defaultColor)
     }
   }
 
@@ -43,10 +38,10 @@ function App() {
   }, [])
 
   // Handler for color change event
-  const handleColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const hexColor: string = e.currentTarget.value
-    setColor(hexColor)
-    changeBgColor(hexColor)
+  const onColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedColor = e.currentTarget.value
+    setBgColor(selectedColor)
+    changeBgColor(selectedColor)
   }
 
   // Popup
@@ -56,7 +51,7 @@ function App() {
       <h1>Click to Change the Color</h1>
       <div className='card'>
         <div>
-          <input type='color' className='color-circle' onChange={handleColorChange} value={color} />
+          <input type='color' className='color-circle' onChange={onColorChange} value={bgColor} />
         </div>
         <Footer />
       </div>
